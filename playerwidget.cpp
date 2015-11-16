@@ -6,11 +6,14 @@ PlayerWidget::PlayerWidget(QWidget *parent) :
     ui(new Ui::PlayerWidget)
 {
     ui->setupUi(this);
+<<<<<<< HEAD
     CustomListWidgetItemView *view = new CustomListWidgetItemView();
     QListWidgetItem *item = new QListWidgetItem;
     item->setSizeHint(QSize(310,115));
     ui->listWidget->addItem(item);
     ui->listWidget->setItemWidget(item,view);
+=======
+>>>>>>> refs/remotes/origin/master
 }
 
 PlayerWidget::~PlayerWidget()
@@ -23,6 +26,7 @@ void PlayerWidget::setToken(QString token)
     TOKEN = token;
 }
 
+<<<<<<< HEAD
 void PlayerWidget::setUID(QString uid)
 {
     UID = uid;
@@ -63,4 +67,9 @@ void PlayerWidget::parseJson()
 //    QJsonDocument jsonDocument = QJsonDocument::fromBinaryData(byteArrayPlaylist);
 //    QVariantList variantListPlaylist = jsonDocument.toVariant();
 //    qDebug()<<"length="+variantListPlaylist.length();
+=======
+void PlayerWidget::on_pushButton_clicked()
+{
+    ui->label->setText(TOKEN);
+>>>>>>> refs/remotes/origin/master
 }

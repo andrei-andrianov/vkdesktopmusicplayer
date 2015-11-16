@@ -55,16 +55,27 @@ void LoginWidget::fishing(QUrl url)
     if (!TOKEN.isEmpty()){
         playerWidget.show();
         playerWidget.setToken(TOKEN);
+<<<<<<< HEAD
         playerWidget.setUID(UID);
         playerWidget.setExpires_in(EXPIRES_IN);
         playerWidget.setMinimumSize(420,500);
         playerWidget.setMaximumSize(420,500);
         playerWidget.createPlaylistView();
+=======
+        playerWidget.setMinimumSize(420,500);
+        playerWidget.setMaximumSize(420,500);
+>>>>>>> refs/remotes/origin/master
         this->close();
     }
 }
 
+<<<<<<< HEAD
 void LoginWidget::on_loginButton_clicked()
 {
     ui->loginView->load(authUrl.toString());
+=======
+void LoginWidget::on_pushButton_clicked()
+{
+    ui->webView->load(authUrl.toString());
+>>>>>>> refs/remotes/origin/master
 }

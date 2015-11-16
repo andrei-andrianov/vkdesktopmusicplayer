@@ -1,7 +1,11 @@
 #include "loginwidget.h"
+#include "playerwidget.h"
 #include <QApplication>
 #include <QDebug>
+<<<<<<< HEAD
 #include <QTextCodec>
+=======
+>>>>>>> refs/remotes/origin/master
 
 int main(int argc, char *argv[])
 {
