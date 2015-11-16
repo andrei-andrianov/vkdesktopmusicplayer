@@ -11,7 +11,9 @@
 #include <QEventLoop>
 #include <QTimer>
 #include <QJsonDocument>
-#include <QJsonObject>
+#include <QVariantList>
+#include <QVariantMap>
+
 
 
 namespace Ui {
@@ -35,7 +37,6 @@ private:
     QString TOKEN, UID, EXPIRES_IN;
     QByteArray byteArrayPlaylist;
     void getPlaylist();
-    void parseJson();
 
 private slots:
 };
