@@ -1,12 +1,12 @@
 #include "loginwidget.h"
 #include "ui_loginwidget.h"
 
+
 LoginWidget::LoginWidget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::LoginWidget)
 {
     ui->setupUi(this);
-    isLogged = false;
 //Values to get api token
     APP_ID = 5137488;
     PERMISSIONS = "audio";
@@ -22,7 +22,7 @@ LoginWidget::LoginWidget(QWidget *parent) :
     authUrl.addQueryItem("redirect_uri", REDIRECT_URI);
     authUrl.addQueryItem("response_type", "token");
 
-    connect(ui->webView,SIGNAL(urlChanged(QUrl)),this,SLOT(fishing(QUrl)));
+    connect(ui->loginView,SIGNAL(urlChanged(QUrl)),this,SLOT(fishing(QUrl)));
 }
 
 LoginWidget::~LoginWidget()
@@ -30,12 +30,21 @@ LoginWidget::~LoginWidget()
     delete ui;
 }
 
-
-void LoginWidget::on_pushButton_clicked()
+QString LoginWidget::getToken()
 {
-    ui->webView->load(authUrl.toString());
+    return TOKEN;
 }
 
+QString LoginWidget::getUID()
+{
+    return UID;
+}
+
+QString LoginWidget::getEXPIRES_IN()
+{
+    return EXPIRES_IN;
+}
+//We are going to fishing if the url is changed to get token
 void LoginWidget::fishing(QUrl url)
 {
     QUrlQuery url_query;
@@ -43,6 +52,19 @@ void LoginWidget::fishing(QUrl url)
     TOKEN = url_query.queryItemValue("access_token");
     UID = url_query.queryItemValue("user_id");
     EXPIRES_IN = url_query.queryItemValue("expires_in");
-    if (!TOKEN.isEmpty())
-        isLogged = true;
+    if (!TOKEN.isEmpty()){
+        playerWidget.show();
+        playerWidget.setToken(TOKEN);
+        playerWidget.setUID(UID);
+        playerWidget.setExpires_in(EXPIRES_IN);
+        playerWidget.setMinimumSize(420,500);
+        playerWidget.setMaximumSize(420,500);
+        playerWidget.createPlaylistView();
+        this->close();
+    }
+}
+
+void LoginWidget::on_loginButton_clicked()
+{
+    ui->loginView->load(authUrl.toString());
 }
