@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>389</width>
-    <height>232</height>
+    <width>547</width>
+    <height>229</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -38,18 +38,18 @@
       </layout>
      </item>
      <item>
-      <widget class="QProgressBar" name="durationBar">
-       <property name="value">
-        <number>24</number>
-       </property>
-      </widget>
-     </item>
-     <item>
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
         <widget class="QPushButton" name="playButton">
          <property name="text">
           <string>Play</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QProgressBar" name="durationBar">
+         <property name="value">
+          <number>24</number>
          </property>
         </widget>
        </item>

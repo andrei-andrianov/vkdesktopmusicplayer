@@ -6,14 +6,6 @@ PlayerWidget::PlayerWidget(QWidget *parent) :
     ui(new Ui::PlayerWidget)
 {
     ui->setupUi(this);
-<<<<<<< HEAD
-    CustomListWidgetItemView *view = new CustomListWidgetItemView();
-    QListWidgetItem *item = new QListWidgetItem;
-    item->setSizeHint(QSize(310,115));
-    ui->listWidget->addItem(item);
-    ui->listWidget->setItemWidget(item,view);
-=======
->>>>>>> refs/remotes/origin/master
 }
 
 PlayerWidget::~PlayerWidget()
@@ -26,7 +18,6 @@ void PlayerWidget::setToken(QString token)
     TOKEN = token;
 }
 
-<<<<<<< HEAD
 void PlayerWidget::setUID(QString uid)
 {
     UID = uid;
@@ -39,8 +30,23 @@ void PlayerWidget::setExpires_in(QString expires_in)
 
 void PlayerWidget::createPlaylistView()
 {
+    //api request for playlist
     getPlaylist();
-    parseJson();
+    //json response parsing
+    QJsonDocument jsonDocument = QJsonDocument::fromJson(byteArrayPlaylist);
+    QVariantList variantListPlaylist = jsonDocument.toVariant().toMap().value("response").toList();
+    if (!variantListPlaylist.isEmpty())
+        for (int i=0;i<variantListPlaylist.size();i++)
+        {
+            QVariantMap current = variantListPlaylist[i].toMap();
+            //insert custom list widget item
+            CustomListWidgetItemView *view = new CustomListWidgetItemView();
+            QListWidgetItem *item = new QListWidgetItem;
+            view->setValues(current.value("title").toString(),current.value("artist").toString(),current.value("url").toUrl());
+            item->setSizeHint(QSize(305,115));
+            ui->listWidget->addItem(item);
+            ui->listWidget->setItemWidget(item,view);
+        }
 }
 //post-get
 void PlayerWidget::getPlaylist()
@@ -60,16 +66,4 @@ void PlayerWidget::getPlaylist()
     //finally get the reply
     byteArrayPlaylist = reply->readAll();
     reply->deleteLater();
-}
-
-void PlayerWidget::parseJson()
-{
-//    QJsonDocument jsonDocument = QJsonDocument::fromBinaryData(byteArrayPlaylist);
-//    QVariantList variantListPlaylist = jsonDocument.toVariant();
-//    qDebug()<<"length="+variantListPlaylist.length();
-=======
-void PlayerWidget::on_pushButton_clicked()
-{
-    ui->label->setText(TOKEN);
->>>>>>> refs/remotes/origin/master
 }

@@ -14,7 +14,6 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         loginwidget.cpp \
-<<<<<<< HEAD
     playerwidget.cpp \
     customlistwidgetitemview.cpp
 
@@ -24,13 +23,4 @@ HEADERS  += loginwidget.h \
 
 FORMS    += loginwidget.ui \
     playerwidget.ui \
-    customlistwidgetitemview.ui
-=======
-    playerwidget.cpp
-
-HEADERS  += loginwidget.h \
-    playerwidget.h
-
-FORMS    += loginwidget.ui \
-    playerwidget.ui
->>>>>>> refs/remotes/origin/master
+    customlistwidgetitemview.ui\
