@@ -15,7 +15,7 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QWebView" name="webView">
+    <widget class="QWebView" name="loginView">
      <property name="url">
       <url>
        <string>about:blank</string>
@@ -39,7 +39,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="loginButton">
        <property name="text">
         <string>Log In</string>
        </property>

@@ -22,7 +22,7 @@ public:
     QString getEXPIRES_IN();
 
 private slots:
-    void on_pushButton_clicked();
+    void on_loginButton_clicked();
 
 private:
     Ui::LoginWidget *ui;
