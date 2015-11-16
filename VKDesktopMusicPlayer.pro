@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui webkitwidgets
+QT       += core gui webkitwidgets xml
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -14,10 +14,13 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         loginwidget.cpp \
-    playerwidget.cpp
+    playerwidget.cpp \
+    customlistwidgetitemview.cpp
 
 HEADERS  += loginwidget.h \
-    playerwidget.h
+    playerwidget.h \
+    customlistwidgetitemview.h
 
 FORMS    += loginwidget.ui \
-    playerwidget.ui
+    playerwidget.ui \
+    customlistwidgetitemview.ui\

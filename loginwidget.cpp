@@ -22,7 +22,7 @@ LoginWidget::LoginWidget(QWidget *parent) :
     authUrl.addQueryItem("redirect_uri", REDIRECT_URI);
     authUrl.addQueryItem("response_type", "token");
 
-    connect(ui->webView,SIGNAL(urlChanged(QUrl)),this,SLOT(fishing(QUrl)));
+    connect(ui->loginView,SIGNAL(urlChanged(QUrl)),this,SLOT(fishing(QUrl)));
 }
 
 LoginWidget::~LoginWidget()
@@ -53,15 +53,19 @@ void LoginWidget::fishing(QUrl url)
     UID = url_query.queryItemValue("user_id");
     EXPIRES_IN = url_query.queryItemValue("expires_in");
     if (!TOKEN.isEmpty()){
-        playerWidget.show();
         playerWidget.setToken(TOKEN);
-        playerWidget.setMinimumSize(420,500);
-        playerWidget.setMaximumSize(420,500);
+        playerWidget.setUID(UID);
+        playerWidget.setExpires_in(EXPIRES_IN);
+        playerWidget.setMinimumSize(450,500);
+        playerWidget.setMaximumSize(450,500);
+        playerWidget.show();
         this->close();
+        playerWidget.createPlaylistView();
+        this->destroy();
     }
 }
 
-void LoginWidget::on_pushButton_clicked()
+void LoginWidget::on_loginButton_clicked()
 {
-    ui->webView->load(authUrl.toString());
+    ui->loginView->load(authUrl.toString());
 }
