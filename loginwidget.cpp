@@ -53,15 +53,14 @@ void LoginWidget::fishing(QUrl url)
     UID = url_query.queryItemValue("user_id");
     EXPIRES_IN = url_query.queryItemValue("expires_in");
     if (!TOKEN.isEmpty()){
+        playerWidget.show();
         playerWidget.setToken(TOKEN);
         playerWidget.setUID(UID);
         playerWidget.setExpires_in(EXPIRES_IN);
-        playerWidget.setMinimumSize(450,500);
-        playerWidget.setMaximumSize(450,500);
-        playerWidget.show();
-        this->close();
+        playerWidget.setMinimumSize(420,500);
+        playerWidget.setMaximumSize(420,500);
         playerWidget.createPlaylistView();
-        this->destroy();
+        this->close();
     }
 }
 

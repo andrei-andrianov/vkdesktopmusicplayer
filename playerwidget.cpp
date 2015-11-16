@@ -6,6 +6,11 @@ PlayerWidget::PlayerWidget(QWidget *parent) :
     ui(new Ui::PlayerWidget)
 {
     ui->setupUi(this);
+    CustomListWidgetItemView *view = new CustomListWidgetItemView();
+    QListWidgetItem *item = new QListWidgetItem;
+    item->setSizeHint(QSize(310,115));
+    ui->listWidget->addItem(item);
+    ui->listWidget->setItemWidget(item,view);
 }
 
 PlayerWidget::~PlayerWidget()
@@ -30,24 +35,8 @@ void PlayerWidget::setExpires_in(QString expires_in)
 
 void PlayerWidget::createPlaylistView()
 {
-    //api request for playlist
     getPlaylist();
-    //json response parsing
-    QJsonDocument jsonDocument = QJsonDocument::fromJson(byteArrayPlaylist);
-    QVariantList variantListPlaylist = jsonDocument.toVariant().toMap().value("response").toList();
-    if (!variantListPlaylist.isEmpty())
-        for (int i=0;i<variantListPlaylist.size();i++)
-        {
-            QVariantMap current = variantListPlaylist[i].toMap();
-            //insert custom list widget item
-            CustomListWidgetItemView *view = new CustomListWidgetItemView();
-            QListWidgetItem *item = new QListWidgetItem;
-            view->setValues(current.value("title").toString(),current.value("artist").toString(),current.value("url").toUrl());
-            item->setSizeHint(QSize(305,115));
-            ui->listWidget->addItem(item);
-            ui->listWidget->setItemWidget(item,view);
-
-        }
+    parseJson();
 }
 //post-get
 void PlayerWidget::getPlaylist()
@@ -67,4 +56,11 @@ void PlayerWidget::getPlaylist()
     //finally get the reply
     byteArrayPlaylist = reply->readAll();
     reply->deleteLater();
+}
+
+void PlayerWidget::parseJson()
+{
+//    QJsonDocument jsonDocument = QJsonDocument::fromBinaryData(byteArrayPlaylist);
+//    QVariantList variantListPlaylist = jsonDocument.toVariant();
+//    qDebug()<<"length="+variantListPlaylist.length();
 }

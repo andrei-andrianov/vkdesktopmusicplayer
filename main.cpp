@@ -11,8 +11,8 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     LoginWidget loginWidget;
 
-    loginWidget.setMinimumSize(420,520);
-    loginWidget.setMaximumSize(420,520);
+    loginWidget.setMinimumSize(420,500);
+    loginWidget.setMaximumSize(420,500);
 
     loginWidget.show();
 
