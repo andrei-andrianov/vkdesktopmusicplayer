@@ -6,19 +6,13 @@
    <rect>
     <x>0</x>
     <y>0</y>
-<<<<<<< HEAD
     <width>456</width>
     <height>310</height>
-=======
-    <width>400</width>
-    <height>300</height>
->>>>>>> refs/remotes/origin/master
    </rect>
   </property>
   <property name="windowTitle">
    <string>VK Desktop MusicPlayer</string>
   </property>
-<<<<<<< HEAD
   <layout class="QHBoxLayout" name="horizontalLayout_2">
    <item>
     <widget class="QListWidget" name="listWidget"/>
@@ -104,44 +98,6 @@
     </layout>
    </item>
   </layout>
-=======
-  <widget class="QListWidget" name="listWidget">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>20</y>
-     <width>301</width>
-     <height>261</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton">
-   <property name="geometry">
-    <rect>
-     <x>320</x>
-     <y>20</y>
-     <width>75</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>PushButton</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_2">
-   <property name="geometry">
-    <rect>
-     <x>320</x>
-     <y>50</y>
-     <width>75</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>PushButton</string>
-   </property>
-  </widget>
->>>>>>> refs/remotes/origin/master
  </widget>
  <resources/>
  <connections/>
