@@ -13,6 +13,7 @@
 #include <QJsonDocument>
 #include <QVariantList>
 #include <QVariantMap>
+#include <QMediaPlayer>
 
 namespace Ui {
 class PlayerWidget;

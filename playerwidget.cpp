@@ -1,11 +1,14 @@
 #include "playerwidget.h"
 #include "ui_playerwidget.h"
 
+QMediaPlayer *player;
+
 PlayerWidget::PlayerWidget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::PlayerWidget)
 {
     ui->setupUi(this);
+    player = new QMediaPlayer();
 }
 
 PlayerWidget::~PlayerWidget()
@@ -42,7 +45,7 @@ void PlayerWidget::createPlaylistView()
             //insert custom list widget item
             CustomListWidgetItemView *view = new CustomListWidgetItemView();
             QListWidgetItem *item = new QListWidgetItem;
-            view->setValues(current.value("title").toString(),current.value("artist").toString(),current.value("url").toUrl());
+            view->setValues(current.value("title").toString(),current.value("artist").toString(),current.value("url").toUrl(),current.value("duration").toInt(),current.value("lyrics_id").toDouble());
             item->setSizeHint(QSize(305,115));
             ui->listWidget->addItem(item);
             ui->listWidget->setItemWidget(item,view);
