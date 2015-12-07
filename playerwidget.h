@@ -14,6 +14,9 @@
 #include <QVariantList>
 #include <QVariantMap>
 #include <QMediaPlayer>
+#include <QMediaPlaylist>
+#include "lastfmloginwidget.h"
+#include "aboutwidget.h"
 
 namespace Ui {
 class PlayerWidget;
@@ -38,6 +41,10 @@ private:
     void getPlaylist();
 
 private slots:
+    void on_scrobbleButton_clicked();
+    void on_lasfmButton_clicked();
+    void lastFmWidgetClosed();
+    void on_aboutButton_clicked();
 };
 
 #endif // PLAYERWIDGET_H

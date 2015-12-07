@@ -30,7 +30,7 @@ private:
     QString PERMISSIONS,DISPLAY,API_VERSION,REDIRECT_URI;
     QString TOKEN, UID, EXPIRES_IN;
     QUrlQuery authUrl;
-    PlayerWidget playerWidget;
+    PlayerWidget *playerWidget;
 
 public slots:
     void fishing(QUrl url);
