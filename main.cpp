@@ -1,11 +1,10 @@
 #include "loginwidget.h"
-#include "playerwidget.h"
 #include <QApplication>
-#include <QDebug>
 #include <QTextCodec>
 
 int main(int argc, char *argv[])
 {
+    //to avoid some problems in songs names
     QTextCodec *utfCodec = QTextCodec::codecForName("UTF-8");
     QTextCodec::setCodecForLocale(utfCodec);
 

@@ -7,11 +7,11 @@
     <x>0</x>
     <y>0</y>
     <width>456</width>
-    <height>310</height>
+    <height>435</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>VK Desktop MusicPlayer</string>
+   <string>VK Desktop Music Player</string>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout_2">
    <item>
@@ -23,16 +23,23 @@
       <enum>QLayout::SetDefaultConstraint</enum>
      </property>
      <item>
-      <widget class="QPushButton" name="scrobbleButton">
+      <widget class="QPushButton" name="lasfmButton">
        <property name="text">
-        <string>Scrobble ON</string>
+        <string>Log In last.fm</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="settingsButton">
+      <widget class="QPushButton" name="scrobbleButton">
        <property name="text">
-        <string>Settings</string>
+        <string>Scrobbling OFF</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="aboutButton">
+       <property name="text">
+        <string>About</string>
        </property>
       </widget>
      </item>

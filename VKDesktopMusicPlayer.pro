@@ -4,7 +4,12 @@
 #
 #-------------------------------------------------
 
-QT       += core gui webkitwidgets xml
+QT       += core \
+            gui \
+            webkit\
+            webkitwidgets \
+            xml \
+            multimedia
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -15,12 +20,23 @@ TEMPLATE = app
 SOURCES += main.cpp\
         loginwidget.cpp \
     playerwidget.cpp \
-    customlistwidgetitemview.cpp
+    customlistwidgetitemview.cpp \
+    lastfmloginwidget.cpp \
+    lyricswidget.cpp \
+    aboutwidget.cpp
 
 HEADERS  += loginwidget.h \
     playerwidget.h \
-    customlistwidgetitemview.h
+    customlistwidgetitemview.h \
+    lastfmloginwidget.h \
+    lyricswidget.h \
+    aboutwidget.h
 
 FORMS    += loginwidget.ui \
     playerwidget.ui \
-    customlistwidgetitemview.ui\
+    customlistwidgetitemview.ui \
+    lastfmloginwidget.ui \
+    lyricswidget.ui \
+    aboutwidget.ui
+
+RESOURCES +=

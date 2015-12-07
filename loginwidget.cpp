@@ -1,19 +1,18 @@
 #include "loginwidget.h"
 #include "ui_loginwidget.h"
 
-
 LoginWidget::LoginWidget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::LoginWidget)
 {
     ui->setupUi(this);
-//Values to get api token
+//values to get api token
     APP_ID = 5137488;
     PERMISSIONS = "audio";
     DISPLAY = "mobile";
     API_VERSION = "5.40";
     REDIRECT_URI = "https://oauth.vk.com/blank.html";
-//Auth string
+//auth string
     authUrl = QUrlQuery("http://api.vkontakte.ru/oauth/authorize?");
     authUrl.addQueryItem("client_id", QString::number(APP_ID));
     authUrl.addQueryItem("scope",PERMISSIONS);
@@ -44,7 +43,7 @@ QString LoginWidget::getEXPIRES_IN()
 {
     return EXPIRES_IN;
 }
-//We are going to fishing if the url is changed to get token
+//we are going to fishing if the url is changed to get token
 void LoginWidget::fishing(QUrl url)
 {
     QUrlQuery url_query;
@@ -53,14 +52,15 @@ void LoginWidget::fishing(QUrl url)
     UID = url_query.queryItemValue("user_id");
     EXPIRES_IN = url_query.queryItemValue("expires_in");
     if (!TOKEN.isEmpty()){
-        playerWidget.setToken(TOKEN);
-        playerWidget.setUID(UID);
-        playerWidget.setExpires_in(EXPIRES_IN);
-        playerWidget.setMinimumSize(450,500);
-        playerWidget.setMaximumSize(450,500);
-        playerWidget.show();
+        playerWidget = new PlayerWidget();
+        playerWidget->setToken(TOKEN);
+        playerWidget->setUID(UID);
+        playerWidget->setExpires_in(EXPIRES_IN);
+        playerWidget->setMinimumSize(450,500);
+        playerWidget->setMaximumSize(450,500);
+        playerWidget->show();
         this->close();
-        playerWidget.createPlaylistView();
+        playerWidget->createPlaylistView();
         this->destroy();
     }
 }
